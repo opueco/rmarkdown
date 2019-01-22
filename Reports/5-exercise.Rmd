@@ -1,0 +1,76 @@
+---
+title: "Tips と練習問題"
+author: "RClub"
+date: "1/11/2019"
+output: 
+  bookdown::html_document2:
+    df_print: paged
+    number_sections: true
+  bookdown::word_document2:
+    reference_docx: template.docx
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tips
+
+* RMarkdown については <https://rmarkdown.rstudio.com/> を読む
+
+* 仮に最終出力を MS Word で仕上げる予定であっても，レポートがおおよそ書き上がるまでは Word の出力を気にしない方がよい。
+
+* 書いたものを逐一チェックしたいときは `xaringan::inf_mr()` を使ってプレビューする
+
+* アカデミックなレポートを書く場合は `bookdown::html_document2`, `bookdown::word_document2` の方が使い勝手がよい。相互参照や数式番号などの機能が追加されている。
+
+* bookdown については <https://bookdown.org/yihui/bookdown/> を読む
+
+* チャンクのオプションについて <https://yihui.name/knitr/options/> で学ぶこと。コードを提出する必要がなければ，`echo = FALSE` をグローバルに指定すること。
+
+* pander パッケージについて調べること。 <http://rapporter.github.io/pander/>
+
+## 表
+
+表番号は `knitr::kable` など表出力のための関数にオプションとして入れる。
+Table \@ref(tab:iris) のように参照できる。
+
+```{r iris}
+knitr::kable(iris[1:5, ],
+             caption = "iris")
+```
+
+## 図
+
+図表番号をつけることができる。Figure \@ref(fig:pressure)
+
+```{r pressure, echo=FALSE, fig.cap="Pressure"}
+plot(pressure)
+```
+
+
+## 数式
+
+数式番号なし
+
+$$
+\int_a^b f(x) dx
+$$
+
+数式番号をつけたいときには，残念ながら Wordでは
+うまくいかない。数式を大量に使うような場合には Word の出力を諦めて LaTeX -> PDF を使う方がよい。
+（さらに残念なことに LaTeX は B3-611 にはインストールされていない）
+
+HTML出力であれば，\@ref(eq:binom) のように参照できる。
+ 
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+
+
+# 練習問題
+
+これまでに学んだ内容を振り返りながらレポートを作成してみましょう。
+内容はなんでも構いませんが，コードとコードの実行結果を含めてください。
+
