@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignore knit Results
+/Reports/*.html
+/Reports/*.docx
+!/Reports/template.docx
